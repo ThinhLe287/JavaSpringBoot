@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <title th:text="${title} ?: 'Your Cart'">Place Order</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+<section layout:fragment="content" class="container mt-3">
+    <h1>Place Your Order</h1>
+    <form th:action="@{/order/submit}" method="post">
+        <div class="mb-3">
+            <label for="customerName" class="form-label">Your Name:</label>
+            <input type="text" id="customerName"
+                   name="customerName"
+                   class="form-control"
+                   required>
+            <label for="shippingAddress" class="form-label">Your contact address:</label>
+            <input type="text" id="shippingAddress"
+                   name="shippingAddress"
+                   class="form-control"
+                   required>
+            <label for="phoneNumber" class="form-label">Your phone number:</label>
+            <input type="number" id="phoneNumber"
+                   name="phoneNumber"
+                   class="form-control"
+                   required>
+            <label for="email" class="form-label">Your Gmail contacts:</label>
+            <input type="email" id="email"
+                   name="email"
+                   class="form-control"
+                   required>
+            <label for="notes" class="form-label">Your notes:</label>
+            <input type="text" id="notes"
+                   name="notes"
+                   class="form-control"
+                   required>
+            <label for="paymentMethod" class="form-label">Your payment method:</label>
+            <select id="paymentMethod" name="paymentMethod" class="form-control" required>
+                <option value="" disabled selected>Select your payment method</option>
+                <option value="creditCard">VISA/MASTERCARD</option>
+                <option value="Momo">MOMO</option>
+                <option value="Ngân hàng">Ngân Hàng</option>
+                <option value="Thanh toán khi nhận hàng">Thanh toán khi nhận hàng</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit Order</button>
+    </form>
+</section>
+</body>
+</html>
